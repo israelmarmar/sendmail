@@ -4,7 +4,10 @@ var app = express();
 var port = process.env.PORT || 3000;  
 
 var transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'Gmail',
+  tls: {
+        rejectUnauthorized: false
+    },
   auth: {
     user: process.env.usermail,
     pass: process.env.pswdmail
@@ -13,6 +16,8 @@ var transporter = nodemailer.createTransport({
 
 
 app.get('/', function (req, res) {
+
+	console.log(process.env.pswdmail);
 
   var mailOptions = {
     from: process.env.usermail,
@@ -25,7 +30,7 @@ app.get('/', function (req, res) {
     if (error) {
       console.log(error);
     } else {
-      console.log('Email sent: ' + info.response);
+      res.json({msg: info.response});
     }
 
   });
