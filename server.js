@@ -17,8 +17,6 @@ var transporter = nodemailer.createTransport({
 
 app.get('/', function (req, res) {
 
-	console.log(process.env.pswdmail);
-
   var mailOptions = {
     from: process.env.usermail,
     to: process.env.tomail,
