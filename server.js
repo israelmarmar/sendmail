@@ -5,6 +5,9 @@ var port = process.env.PORT || 3000;
 
 var transporter = nodemailer.createTransport({
   service: 'Gmail',
+  tls: {
+        rejectUnauthorized: false
+    },
   auth: {
     user: process.env.usermail,
     pass: process.env.pswdmail
@@ -20,6 +23,8 @@ app.get('/', function (req, res) {
     subject: req.query.subject,
     text: req.query.text
   };
+
+  console.log(usermail);
 
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
