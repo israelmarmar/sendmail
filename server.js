@@ -24,7 +24,7 @@ app.get('/', function (req, res) {
     text: req.query.text
   };
 
-  console.log(usermail);
+  console.log(process.env.usermail);
 
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
