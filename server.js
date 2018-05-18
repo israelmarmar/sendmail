@@ -21,7 +21,7 @@ app.get('/', function (req, res) {
     from: process.env.usermail,
     to: process.env.tomail,
     subject: req.query.subject,
-    text: req.query.text
+    text: "name: "+req.query.name+"\n"+"email: "+req.query.email+"\n\n"+req.query.text
   };
 
   console.log(process.env.usermail);
