@@ -4,9 +4,11 @@ var app = express();
 var port = process.env.PORT || 3000;  
 
 var transporter = nodemailer.createTransport({
-  service: 'Gmail',
+  host: "smtp-mail.outlook.com", // hostname
+  secureConnection: false, // TLS requires secureConnection to be false
+  port: 587, // port for secure SMTP
   tls: {
-        rejectUnauthorized: false
+        ciphers:'SSLv3'
     },
   auth: {
     user: process.env.usermail,
