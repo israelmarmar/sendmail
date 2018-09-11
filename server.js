@@ -3,7 +3,7 @@ var express = require('express');
 var app = express();
 var port = process.env.PORT || 3000;  
 
-var transporter = nodemailer.createTransport("SMTP", {
+var transporter = nodemailer.createTransport({
   service: "hotmail", // hostname
   secureConnection: false, // TLS requires secureConnection to be false
   auth: {
