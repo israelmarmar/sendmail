@@ -4,12 +4,8 @@ var app = express();
 var port = process.env.PORT || 3000;  
 
 var transporter = nodemailer.createTransport("SMTP", {
-  host: "smtp-mail.outlook.com", // hostname
+  service: "hotmail", // hostname
   secureConnection: false, // TLS requires secureConnection to be false
-  port: 587, // port for secure SMTP
-  tls: {
-        ciphers:'SSLv3'
-    },
   auth: {
     user: process.env.usermail,
     pass: process.env.pswdmail
